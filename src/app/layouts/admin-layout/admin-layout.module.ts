@@ -14,6 +14,9 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { ClientsComponent } from '../../clients/clients.component';
+
+import { MatIconModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -22,18 +25,20 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     FormsModule,
     ChartsModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatIconModule,
+    MatButtonModule
   ],
   declarations: [
     DashboardComponent,
+    ClientsComponent,
     UserProfileComponent,
     TableListComponent,
     UpgradeComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
-    NotificationsComponent,
+    NotificationsComponent
   ]
 })
-
 export class AdminLayoutModule {}
