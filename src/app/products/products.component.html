@@ -1,0 +1,24 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title" style="color:#4B0082;">Products</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div *ngFor="let card of numbers">
+              <div class="col-md-6">
+                <a routerLink="{{card.route}}">
+                  <img src="{{card.imageUrl}}" />
+                </a>
+              </div>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,444 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title" style="color:#4B0082;">Motor 3rd Party</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-horizontal-stepper labelPosition="right" #stepper>
+                <mat-step>
+                  <ng-template matStepLabel>Client Details</ng-template>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mat-tab-group>
+                        <mat-tab label="Individual Clients">
+                          <div class="row">
+                            <!-- <div class="col-md-6">
+                              <button
+                                mat-icon-button
+                                style="color:#4B0082; border:none;"
+                                matTooltip="Create Client"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-plus mat-icon"></i>
+                              </button>
+                            </div> -->
+                            <div class="col-md-12">
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  (keyup)="applyFilter($event.target.value)"
+                                  placeholder="Filter"
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="mat-elevation-z8">
+                                <table
+                                  mat-table
+                                  [dataSource]="dataSource"
+                                  matSort
+                                >
+                                  <!-- ID Column -->
+                                  <ng-container matColumnDef="id">
+                                    <th
+                                      mat-header-cell
+                                      *matHeaderCellDef
+                                      mat-sort-header
+                                    >
+                                      ID
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                      {{ row.id }}
+                                    </td>
+                                  </ng-container>
+
+                                  <!-- Progress Column -->
+                                  <ng-container matColumnDef="name">
+                                    <th
+                                      mat-header-cell
+                                      *matHeaderCellDef
+                                      mat-sort-header
+                                    >
+                                      Name
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                      {{ row.name }}
+                                    </td>
+                                  </ng-container>
+
+                                  <!-- Name Column -->
+                                  <ng-container matColumnDef="identitification">
+                                    <th
+                                      mat-header-cell
+                                      *matHeaderCellDef
+                                      mat-sort-header
+                                    >
+                                      Identitification
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                      {{ row.identitification }}
+                                    </td>
+                                  </ng-container>
+
+                                  <!-- Color Column -->
+                                  <ng-container matColumnDef="phone_number">
+                                    <th
+                                      mat-header-cell
+                                      *matHeaderCellDef
+                                      mat-sort-header
+                                    >
+                                      Phone Number
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                      {{ row.phone_number }}
+                                    </td>
+                                  </ng-container>
+
+                                  <!-- Color Column -->
+                                  <ng-container matColumnDef="actions">
+                                    <th
+                                      mat-header-cell
+                                      *matHeaderCellDef
+                                      mat-sort-header
+                                    >
+                                      Actions
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                      <button
+                                        mat-icon-button
+                                        color="primary"
+                                        (click)="onSelect(row)"
+                                        matTooltip="add cover type"
+                                        [matTooltipPosition]="'above'"
+                                        matStepperNext
+                                      >
+                                        <i class="fa fa-car mat-icon"></i>
+                                      </button>
+                                    </td>
+                                  </ng-container>
+
+                                  <tr
+                                    mat-header-row
+                                    *matHeaderRowDef="displayedColumns"
+                                  ></tr>
+                                  <tr
+                                    mat-row
+                                    *matRowDef="
+                                      let row;
+                                      columns: displayedColumns
+                                    "
+                                  ></tr>
+                                </table>
+
+                                <mat-paginator
+                                  [pageSizeOptions]="[5, 10, 20]"
+                                  showFirstLastButtons
+                                ></mat-paginator>
+                              </div>
+                            </div>
+                          </div>
+                        </mat-tab>
+                        <mat-tab label="Corporate Clients">
+                           <div class="row">
+
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyCorporateFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table #corporate mat-table [dataSource]="corporateDataSource" matSort>
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              ID
+                            </th>
+                            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="registration">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Registration Number
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.registration }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="contact">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Contact
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.contact }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="email">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Email Address
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.email }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                color="primary"
+                                matTooltip="Details"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-briefcase mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedCorporateColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="let row; columns: displayedCorporateColumns"
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                  </div>
+                 </mat-tab>
+                      </mat-tab-group>
+                    </div>
+                  </div>
+                </mat-step>
+                <mat-step [stepControl]="CoverTypeFormGroup" errorMessage="All fields required.">
+                  <ng-template matStepLabel>Cover Type</ng-template>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <form [formGroup]="CoverTypeFormGroup">
+                        <div class="row">
+                    <div class="col-md-6">
+                      <div class="example-container">
+                        <mat-form-field class="example-full-width">
+                          <mat-select formControlName="productType" placeholder="Product Type">
+                            <mat-option value="option">Option</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="example-container">
+                        <mat-form-field class="example-full-width">
+                          <mat-select formControlName="curency" placeholder="Currency">
+                            <mat-option value="option">Option</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput [min]="minDate" [matDatepicker]="picker" formControlName="durationDate" placeholder="Start Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="example-container">
+                        <mat-form-field class="example-full-width">
+                          <mat-select placeholder="Covering" formControlName="covering">
+                            <mat-option value="option">Option</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                <button mat-raised-button type="submit" class="btn mat-primary pull-right" matStepperNext (click)="onCover()"> Next</button>
+                <div class="clearfix"></div>
+              </div>
+                  </div>
+                      </form>
+                    </div>
+                  </div>
+                </mat-step>
+                <mat-step [stepControl]="vehicleForm" errorMessage="All fields required.">
+                  <ng-template matStepLabel>Vehicle Registration</ng-template>
+                  <ng-template matStepLabel>Done</ng-template>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <form [formGroup]="vehicleForm">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input
+                                matInput
+                                placeholder="Vehicle Model"
+                                formControlName="vehicleModel"
+                                type="text"
+                              />
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input
+                                matInput
+                                placeholder="Vehicle Make"
+                                formControlName="vehicleMake"
+                                type="text"
+                              />
+                            </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input
+                                matInput
+                                placeholder="Color"
+                                formControlName="color"
+                                type="text"
+                              />
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input
+                                matInput
+                                placeholder="Year of Manufucture"
+                                formControlName="manufuctureYear"
+                                type="text"
+                              />
+                            </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput formControlName="startDate" [min]="minDate" [matDatepicker]="picker1" placeholder="Start Date">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput formControlName="endDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Start Date">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                            <input
+                              matInput
+                              placeholder="Vehicle Engine Number"
+                              formControlName="vehicleEngineNumber"
+                              type="text"
+                            />
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                            <input
+                              matInput
+                              placeholder="Vehicle Registration Number"
+                              formControlName="vehicleRegistrationNumber"
+                              type="text"
+                            />
+                            </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button class="pull-right"
+                        mat-icon-button
+                        style="color:#4B0082; border:none;"
+                        (click)="attatch()"
+                        matTooltip="Attatch Vehicle"
+                        [matTooltipPosition]="'above'"
+                      >
+                        <i class="fa fa-plus mat-icon"></i>
+                      </button>
+                        </div>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="confirm()">Confirm</button>
+                  </div>
+                </mat-step>
+              </mat-horizontal-stepper>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

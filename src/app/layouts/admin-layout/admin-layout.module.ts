@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
@@ -15,8 +15,39 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ClientsComponent } from '../../clients/clients.component';
+import { CreateClientComponent } from '../../create-client/create-client.component';
+import { ViewIndividualClientComponent } from '../../view-individual-client/view-individual-client.component';
+import { CreateCorporateClientComponent } from '../../create-corporate-client/create-corporate-client.component';
+import { ViewCorporateClientComponent } from '../../view-corporate-client/view-corporate-client.component';
+import { MenuItemComponent } from '../../menu-item/menu-item.component';
+import { InsuranceCompaniesComponent } from '../../insurance-companies/insurance-companies.component';
+import { ProductsComponent } from '../../products/products.component';
+import { MotorThirdPartyComponent } from '../../motor-third-party/motor-third-party.component';
+import { RecieptingComponent } from '../../reciepting/reciepting.component';
 
-import { MatIconModule, MatButtonModule } from '@angular/material';
+import {
+  MatIconModule,
+  MatButtonModule,
+  MatTooltipModule,
+  MatTabsModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  MatSelectModule,
+  MatCardModule,
+  MatMenuModule,
+  MatButtonToggleModule,
+  MatStepperModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+} from '@angular/material';
+
+
+
+
 
 @NgModule({
   imports: [
@@ -27,18 +58,43 @@ import { MatIconModule, MatButtonModule } from '@angular/material';
     NgbModule,
     ToastrModule.forRoot(),
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatMenuModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatCardModule,
+    MatButtonToggleModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [
     DashboardComponent,
     ClientsComponent,
+    CreateClientComponent,
+    ViewIndividualClientComponent,
+    CreateCorporateClientComponent,
+    ViewCorporateClientComponent,
+    MenuItemComponent,
     UserProfileComponent,
     TableListComponent,
     UpgradeComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    InsuranceCompaniesComponent,
+    ProductsComponent,
+    MotorThirdPartyComponent,
+    RecieptingComponent
   ]
 })
 export class AdminLayoutModule {}

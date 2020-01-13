@@ -4,26 +4,15 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h5 class="title" style="color:#4B0082;">Clients</h5>
+          <h5 class="title" style="color:#4B0082;">Reciepting</h5>
         </div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
               <mat-tab-group>
-                <mat-tab label="Individual">
+                <mat-tab label="Process Qoutation">
                   <div class="row">
-                    <div class="col-md-6">
-                      <button
-                        mat-icon-button
-                        style="color:#4B0082; border:none;"
-                        (click)="onOpenDialog()"
-                        matTooltip="Create Client"
-                        [matTooltipPosition]="'above'"
-                      >
-                        <i class="fa fa-plus mat-icon"></i>
-                      </button>
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <mat-form-field>
                         <input
                           matInput
@@ -36,7 +25,11 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="mat-elevation-z8">
-                        <table mat-table [dataSource]="dataSource" matSort>
+                        <table
+                          mat-table
+                          [dataSource]="dataSource"
+                          matSort
+                        >
                           <!-- ID Column -->
                           <ng-container matColumnDef="id">
                             <th
@@ -46,7 +39,9 @@
                             >
                               ID
                             </th>
-                            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.id }}
+                            </td>
                           </ng-container>
 
                           <!-- Progress Column -->
@@ -56,7 +51,7 @@
                               *matHeaderCellDef
                               mat-sort-header
                             >
-                              Name
+                              Product Name
                             </th>
                             <td mat-cell *matCellDef="let row">
                               {{ row.name }}
@@ -64,30 +59,30 @@
                           </ng-container>
 
                           <!-- Name Column -->
-                          <ng-container matColumnDef="identitification">
+                          <ng-container matColumnDef="amount">
                             <th
                               mat-header-cell
                               *matHeaderCellDef
                               mat-sort-header
                             >
-                              Identitification
+                             Amount
                             </th>
                             <td mat-cell *matCellDef="let row">
-                              {{ row.identitification }}
+                              {{ row.amount }}
                             </td>
                           </ng-container>
 
                           <!-- Color Column -->
-                          <ng-container matColumnDef="phone_number">
+                          <ng-container matColumnDef="duration">
                             <th
                               mat-header-cell
                               *matHeaderCellDef
                               mat-sort-header
                             >
-                              Phone Number
+                             Duration
                             </th>
                             <td mat-cell *matCellDef="let row">
-                              {{ row.phone_number }}
+                              {{ row.duration }}
                             </td>
                           </ng-container>
 
@@ -104,11 +99,10 @@
                               <button
                                 mat-icon-button
                                 color="primary"
-                                (click)="onOpenDetailsDialog()"
-                                matTooltip="Details"
+                                matTooltip="add cover type"
                                 [matTooltipPosition]="'above'"
                               >
-                                <i class="fa fa-user mat-icon"></i>
+                                <i class="fa fa-car mat-icon"></i>
                               </button>
                             </td>
                           </ng-container>
@@ -119,35 +113,28 @@
                           ></tr>
                           <tr
                             mat-row
-                            *matRowDef="let row; columns: displayedColumns"
+                            *matRowDef="
+                              let row;
+                              columns: displayedColumns
+                            "
                           ></tr>
                         </table>
 
                         <mat-paginator
-                          [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
                         ></mat-paginator>
                       </div>
                     </div>
-                  </div>
-                </mat-tab>
-                <mat-tab label="Corporate">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <button
-                        mat-icon-button
-                        style="color:#4B0082; border:none;"
-                        (click)="onOpenCorporateDialog()"
-                        matTooltip="Create Corporate Client"
-                        [matTooltipPosition]="'above'"
-                      >
-                        <i class="fa fa-plus mat-icon"></i>
-                      </button>
                     </div>
-                    <div class="col-md-6">
+                </mat-tab>
+                <mat-tab label="Debit Note">
+                  <div class="row">
+                    <div class="col-md-12">
                       <mat-form-field>
                         <input
                           matInput
-                          (keyup)="applyCorporateFilter($event.target.value)"
+                          (keyup)="applyDebitFilter($event.target.value)"
                           placeholder="Filter"
                         />
                       </mat-form-field>
@@ -156,17 +143,21 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="mat-elevation-z8">
-                        <table #corporate mat-table [dataSource]="corporateDataSource" matSort>
+                        <table
+                          mat-table
+                          [dataSource]="debitDataSource"
+                        >
                           <!-- ID Column -->
                           <ng-container matColumnDef="id">
                             <th
                               mat-header-cell
                               *matHeaderCellDef
-                              mat-sort-header
                             >
                               ID
                             </th>
-                            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.id }}
+                            </td>
                           </ng-container>
 
                           <!-- Progress Column -->
@@ -174,9 +165,8 @@
                             <th
                               mat-header-cell
                               *matHeaderCellDef
-                              mat-sort-header
                             >
-                              Name
+                              Product Name
                             </th>
                             <td mat-cell *matCellDef="let row">
                               {{ row.name }}
@@ -184,44 +174,41 @@
                           </ng-container>
 
                           <!-- Name Column -->
-                          <ng-container matColumnDef="registration">
+                          <ng-container matColumnDef="amount_paid">
                             <th
                               mat-header-cell
                               *matHeaderCellDef
-                              mat-sort-header
                             >
-                              Registration Number
+                             Amount Paid
                             </th>
                             <td mat-cell *matCellDef="let row">
-                              {{ row.registration }}
+                              {{ row.amount_paid }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="amount_remaining">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                             Amount Remaining
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.amount_remaining }}
                             </td>
                           </ng-container>
 
                           <!-- Color Column -->
-                          <ng-container matColumnDef="contact">
+                          <ng-container matColumnDef="duration">
                             <th
                               mat-header-cell
                               *matHeaderCellDef
-                              mat-sort-header
                             >
-                              Contact
+                             Duration
                             </th>
                             <td mat-cell *matCellDef="let row">
-                              {{ row.contact }}
-                            </td>
-                          </ng-container>
-
-                          <!-- Color Column -->
-                          <ng-container matColumnDef="email">
-                            <th
-                              mat-header-cell
-                              *matHeaderCellDef
-                              mat-sort-header
-                            >
-                              Email Address
-                            </th>
-                            <td mat-cell *matCellDef="let row">
-                              {{ row.email }}
+                              {{ row.duration }}
                             </td>
                           </ng-container>
 
@@ -230,7 +217,6 @@
                             <th
                               mat-header-cell
                               *matHeaderCellDef
-                              mat-sort-header
                             >
                               Actions
                             </th>
@@ -238,29 +224,39 @@
                               <button
                                 mat-icon-button
                                 color="primary"
-                                (click)="onOpenCorporateDetailsDialog()"
-                                matTooltip="Details"
+                                matTooltip="add cover type"
                                 [matTooltipPosition]="'above'"
                               >
-                                <i class="fa fa-briefcase mat-icon"></i>
+                                <i class="fa fa-car mat-icon"></i>
                               </button>
                             </td>
                           </ng-container>
 
                           <tr
                             mat-header-row
-                            *matHeaderRowDef="displayedCorporateColumns"
+                            *matHeaderRowDef="displayedDebitColumns"
                           ></tr>
                           <tr
                             mat-row
-                            *matRowDef="let row; columns: displayedCorporateColumns"
+                            *matRowDef="
+                              let row;
+                              columns: displayedDebitColumns
+                            "
                           ></tr>
                         </table>
 
                         <mat-paginator
-                          [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
                         ></mat-paginator>
                       </div>
+                    </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="View Reciept">
+                  <div class="row">
+                    <div class="col-md-12">
+
                     </div>
                   </div>
                 </mat-tab>

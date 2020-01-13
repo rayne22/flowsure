@@ -1,0 +1,112 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card card-plain">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Create Client</h4>
+      </div>
+      <p></p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card-body">
+            <mat-dialog-content>
+              <form [formGroup]="clientForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="First Name"
+                        formControlName="firstName"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Last Name"
+                        formControlName="lastName"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Identification"
+                        formControlName="nrc"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Phone Number"
+                        formControlName="phone"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Address"
+                        formControlName="address"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Email Address"
+                        formControlName="email"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <mat-select placeholder="Gender" formControlName="gender">
+                        <mat-option value="option">Option</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <mat-select placeholder="Nationality" formControlName="nationality">
+                        <mat-option value="option">Option</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+              </div>
+              </form>
+            </mat-dialog-content>
+
+            <mat-dialog-actions>
+              <div class="col-md-6">
+                <button class="mat-raised-button" (click)="close()">Close</button>
+              </div>
+              <div class="col-md-6">
+                <button mat-raised-button type="submit" class="btn mat-primary pull-right" (click)="save()">Create Client</button>
+                <div class="clearfix"></div>
+              </div>
+            </mat-dialog-actions>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -38,8 +38,8 @@
     }
 
     // btn-neutral style
-    @if $btn-color == $white-color{
-        color: $primary-color;
+    @if $btn-color == $primary-color{
+        color: $white-color;
 
         &.btn-danger{
             color: $danger-color;
