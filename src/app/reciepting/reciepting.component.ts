@@ -254,7 +254,7 @@ export class RecieptingComponent implements OnInit {
   ];
 
   // Debit Note data source
-  receiptDataSource = new MatTableDataSource(DEBIT_DATA);
+  receiptDataSource = new MatTableDataSource(RECEIPT_DATA);
 
   // Debit Note viewChild
   @ViewChild('ReceiptMatPaginator', { static: true })
@@ -271,9 +271,9 @@ export class RecieptingComponent implements OnInit {
     this.debitDataSource.paginator = this.debitPaginator;
     this.debitDataSource.sort = this.debitSort;
 
-    // Debit Note
-    this.receiptDataSource.paginator = this.debitPaginator;
-    this.receiptDataSource.sort = this.debitSort;
+    // Receipt
+    this.receiptDataSource.paginator = this.receiptPaginator;
+    this.receiptDataSource.sort = this.receiptSort;
   }
 
   // Qoutation filter
@@ -284,6 +284,11 @@ export class RecieptingComponent implements OnInit {
   // Debit Note filter
   applyDebitFilter(filterValue: string) {
     this.debitDataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  // Receipt filter
+  applyReceiptFilter(filterValue: string) {
+    this.receiptDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   //
