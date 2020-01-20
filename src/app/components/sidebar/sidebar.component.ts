@@ -24,13 +24,31 @@ export const ROUTES: RouteInfo[] = [
          {
            path: '/view-insurance-companies',
            title: 'Qoutations',
-           icon: 'design_bullet-list-67',
+           icon: 'files_single-copy-04',
            class: ''
          },
          {
            path: '/receipting',
            title: 'Reciepting',
-           icon: 'education_atom',
+           icon: 'files_paper',
+           class: ''
+         },
+         {
+           path: '/policies',
+           title: 'Policies',
+           icon: 'education_paper',
+           class: ''
+         },
+         {
+           path: '/claims',
+           title: 'Claims',
+           icon: 'files_box',
+           class: ''
+         },
+         {
+           path: '/queries',
+           title: 'Queries',
+           icon: 'ui-2_chat-round',
            class: ''
          },
          { path: '/icons', title: 'Icons', icon: 'education_atom', class: '' }

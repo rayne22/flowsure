@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogConfig } from '@angular/material';
+import { CreateRecieptComponent } from '../create-reciept/create-reciept.component';
+import { CreateDebitNoteComponent } from '../create-debit-note/create-debit-note.component';
 
 // Qoutations
 export interface QoutationData {
@@ -141,7 +143,7 @@ const DEBIT_DATA: DebitNoteData[] = [
 ];
 
 
-// Debit note
+// Receipt
 export interface ReceiptData {
   id: number;
   receipt_number: string;
@@ -260,7 +262,7 @@ export class RecieptingComponent implements OnInit {
   @ViewChild('ReceiptMatPaginator', { static: true })
   receiptPaginator: MatPaginator;
   @ViewChild('ReceiptMatSort', { static: true }) receiptSort: MatSort;
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
     // Qoutations
@@ -291,6 +293,21 @@ export class RecieptingComponent implements OnInit {
     this.receiptDataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  //
-  onSelect() {}
+  // receipting dialog
+  onOpenReceiptingDialog() {
+    const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '60%';
+    this.dialog.open(CreateRecieptComponent, dialogConfig);
+  }
+
+  // debit note dialog
+  onOpenDebitNoteDialog() {
+    const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '60%';
+    this.dialog.open(CreateDebitNoteComponent, dialogConfig);
+  }
 }

@@ -24,6 +24,12 @@ import { InsuranceCompaniesComponent } from '../../insurance-companies/insurance
 import { ProductsComponent } from '../../products/products.component';
 import { MotorThirdPartyComponent } from '../../motor-third-party/motor-third-party.component';
 import { RecieptingComponent } from '../../reciepting/reciepting.component';
+import { CreateRecieptComponent } from '../../create-reciept/create-reciept.component';
+import { CreateDebitNoteComponent } from '../../create-debit-note/create-debit-note.component';
+import { PoliciesComponent } from '../../policies/policies.component';
+import { ClaimsComponent } from '../../claims/claims.component';
+import { QueriesComponent } from '../../queries/queries.component';
+import { AddQueryComponent } from '../../add-query/add-query.component';
 
 import {
   MatIconModule,
@@ -43,6 +49,7 @@ import {
   MatStepperModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatExpansionModule
 } from '@angular/material';
 
 
@@ -74,7 +81,8 @@ import {
     MatButtonToggleModule,
     MatStepperModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatExpansionModule
   ],
   declarations: [
     DashboardComponent,
@@ -94,7 +102,13 @@ import {
     InsuranceCompaniesComponent,
     ProductsComponent,
     MotorThirdPartyComponent,
-    RecieptingComponent
+    RecieptingComponent,
+    CreateRecieptComponent,
+    CreateDebitNoteComponent,
+    PoliciesComponent,
+    ClaimsComponent,
+    QueriesComponent,
+    AddQueryComponent
   ]
 })
 export class AdminLayoutModule {}

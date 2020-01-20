@@ -17,6 +17,12 @@ import { InsuranceCompaniesComponent } from '../../insurance-companies/insurance
 import { ProductsComponent } from '../../products/products.component';
 import { MotorThirdPartyComponent } from '../../motor-third-party/motor-third-party.component';
 import { RecieptingComponent } from '../../reciepting/reciepting.component';
+import { CreateRecieptComponent } from '../../create-reciept/create-reciept.component';
+import { CreateDebitNoteComponent } from '../../create-debit-note/create-debit-note.component';
+import { PoliciesComponent } from '../../policies/policies.component';
+import { ClaimsComponent } from '../../claims/claims.component';
+import { QueriesComponent } from '../../queries/queries.component';
+import { AddQueryComponent } from '../../add-query/add-query.component';
 
 export const AdminLayoutRoutes: Routes = [
          { path: 'dashboard', component: DashboardComponent },
@@ -49,6 +55,30 @@ export const AdminLayoutRoutes: Routes = [
          {
            path: 'receipting',
            component: RecieptingComponent
+         },
+         {
+           path: 'create-receipt',
+           component: CreateRecieptComponent
+         },
+         {
+           path: 'create-debit-note',
+           component: CreateDebitNoteComponent
+         },
+         {
+           path: 'policies',
+           component: PoliciesComponent
+         },
+         {
+           path: 'claims',
+           component: ClaimsComponent
+         },
+         {
+           path: 'queries',
+           component: QueriesComponent
+         },
+         {
+           path: 'add-query',
+           component: AddQueryComponent
          },
          { path: 'user-profile', component: UserProfileComponent },
          { path: 'table-list', component: TableListComponent },

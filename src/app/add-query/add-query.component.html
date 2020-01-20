@@ -1,0 +1,65 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card card-plain">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Create Client</h4>
+      </div>
+      <p></p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card-body">
+            <mat-dialog-content>
+              <form [formGroup]="queryForm">
+                <div class="row">
+                  <div class="col-md-6">
+              <div class="example-container">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Query Title" formControlName="query_title">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="example-container">
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="client_name" placeholder="Client Name">
+                </mat-form-field>
+              </div>
+            </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+              <div class="example-container">
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="phone" placeholder="Contact Number">
+                </mat-form-field>
+              </div>
+            </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+              <div class="example-container">
+                <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder="Query Description" formControlName="query_description"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+              </div>
+              </form>
+            </mat-dialog-content>
+
+            <mat-dialog-actions>
+               <div class="col-md-6">
+                <button class="mat-raised-button" (click)="close()">Close</button>
+              </div>
+              <div class="col-md-6">
+                <button mat-raised-button type="submit" class="btn mat-primary pull-right" (click)="onSave()"> Receipt</button>
+                <div class="clearfix"></div>
+              </div>
+            </mat-dialog-actions>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
