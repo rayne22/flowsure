@@ -23,6 +23,7 @@ import { PoliciesComponent } from '../../policies/policies.component';
 import { ClaimsComponent } from '../../claims/claims.component';
 import { QueriesComponent } from '../../queries/queries.component';
 import { AddQueryComponent } from '../../add-query/add-query.component';
+import { ReportsComponent } from '../../reports/reports.component';
 
 export const AdminLayoutRoutes: Routes = [
          { path: 'dashboard', component: DashboardComponent },
@@ -79,6 +80,10 @@ export const AdminLayoutRoutes: Routes = [
          {
            path: 'add-query',
            component: AddQueryComponent
+         },
+         {
+           path: 'reports',
+           component: ReportsComponent
          },
          { path: 'user-profile', component: UserProfileComponent },
          { path: 'table-list', component: TableListComponent },

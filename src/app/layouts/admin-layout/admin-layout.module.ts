@@ -30,6 +30,9 @@ import { PoliciesComponent } from '../../policies/policies.component';
 import { ClaimsComponent } from '../../claims/claims.component';
 import { QueriesComponent } from '../../queries/queries.component';
 import { AddQueryComponent } from '../../add-query/add-query.component';
+import { ReportsComponent } from '../../reports/reports.component';
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
+import { RangeComponent } from '../../range/range.component';
 
 import {
   MatIconModule,
@@ -82,7 +85,10 @@ import {
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatExpansionModule
+    MatExpansionModule,
+    SatDatepickerModule,
+    SatNativeDateModule,
+    MatNativeDateModule
   ],
   declarations: [
     DashboardComponent,
@@ -108,7 +114,9 @@ import {
     PoliciesComponent,
     ClaimsComponent,
     QueriesComponent,
-    AddQueryComponent
+    AddQueryComponent,
+    ReportsComponent,
+    RangeComponent
   ]
 })
 export class AdminLayoutModule {}

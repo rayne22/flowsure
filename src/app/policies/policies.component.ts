@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
-// Receipt
+// Policy
 export interface PolicyData {
   ref: string;
   client_name: string;

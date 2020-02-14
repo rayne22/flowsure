@@ -13,10 +13,29 @@
                 <div class="row">
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width">
+                      <mat-select placeholder="Title" formControlName="title">
+                        <mat-option value="option">Option</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
                       <input
                         matInput
                         placeholder="First Name"
                         formControlName="firstName"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Middle Name"
+                        formControlName="middle_name"
                         type="text"
                       />
                     </mat-form-field>
@@ -59,8 +78,8 @@
                     <mat-form-field class="example-full-width">
                       <input
                         matInput
-                        placeholder="Address"
-                        formControlName="address"
+                        placeholder="Email Address"
+                        formControlName="email"
                         type="text"
                       />
                     </mat-form-field>
@@ -69,9 +88,9 @@
                     <mat-form-field class="example-full-width">
                       <input
                         matInput
-                        placeholder="Email Address"
-                        formControlName="email"
-                        type="text"
+                        placeholder="Date of Birth"
+                        formControlName="date_of_birth"
+                        type="date"
                       />
                     </mat-form-field>
                   </div>
@@ -89,6 +108,69 @@
                       <mat-select placeholder="Nationality" formControlName="nationality">
                         <mat-option value="option">Option</mat-option>
                       </mat-select>
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <mat-select placeholder="Marital Status" formControlName="marital_status">
+                        <mat-option value="option">Option</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Place of Birth"
+                        formControlName="place_of_birth"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Street Address"
+                        formControlName="street_address"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="House Number"
+                        formControlName="house_number"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Residential Area"
+                        formControlName="residential_area"
+                        type="text"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Postal Address"
+                        formControlName="postal_address"
+                        type="text"
+                      />
                     </mat-form-field>
                   </div>
               </div>

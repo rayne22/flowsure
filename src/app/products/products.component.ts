@@ -10,17 +10,21 @@ export class ProductsComponent implements OnInit {
 
   number1 = [
     {
+      productName: 'Motor Third Party',
       imageUrl: 'assets/img/angular2-logo-red.png',
       route: '/motor-third-party'
 
     },
     {
+      productName: '',
       imageUrl: 'assets/img/angular2-logo-red.png'
     },
     {
+      productName: '',
       imageUrl: 'assets/img/angular2-logo-red.png'
     },
     {
+      productName: '',
       imageUrl: 'assets/img/angular2-logo-white.png'
     }
   ];

@@ -1,0 +1,161 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title" style="color:#4B0082;">Reports</h5>
+        </div>
+        <div class="card-body">
+         <div class="row">
+            <div class="col-md-12">
+              <mat-tab-group>
+                <mat-tab label="Policies">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h5>Generate Policy Report</h5>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-8 width">
+
+                              <div class="row">
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                   <mat-form-field >
+                                      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.begin">
+                                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                   <mat-form-field >
+                                      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.end">
+                                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                  <button mat-raised-button color="primary">Primary</button>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-md-12">
+                                <div class="inlineCalendarContainer height">
+                                  <sat-calendar [rangeMode]="true"
+                                    (dateRangesChange)="inlineRangeChange($event)">
+                                  </sat-calendar>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Claims">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h5>Generate Claims Report</h5>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-8 width">
+
+                              <div class="row">
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                   <mat-form-field >
+                                      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.begin">
+                                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                   <mat-form-field >
+                                      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.end">
+                                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                  <button mat-raised-button color="primary">Primary</button>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-md-12">
+                                <div class="inlineCalendarContainer height">
+                                  <sat-calendar [rangeMode]="true"
+                                    (dateRangesChange)="inlineRangeChange($event)">
+                                  </sat-calendar>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Transactions">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h5>Generate Transactions Report</h5>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-8 width">
+
+                              <div class="row">
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                   <mat-form-field >
+                                      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.begin">
+                                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                   <mat-form-field >
+                                      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.end">
+                                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-2" *ngIf="inlineRange">
+                                  <button mat-raised-button color="primary">Primary</button>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-md-12">
+                                <div class="inlineCalendarContainer height">
+                                  <sat-calendar [rangeMode]="true"
+                                    (dateRangesChange)="inlineRangeChange($event)">
+                                  </sat-calendar>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@
                     <mat-form-field class="example-full-width">
                       <input
                         matInput
-                        placeholder="Name"
+                        placeholder="Company Name"
                         formControlName="name"
                         type="text"
                       />
@@ -25,7 +25,7 @@
                     <mat-form-field class="example-full-width">
                       <input
                         matInput
-                        placeholder="Registration"
+                        placeholder="Company Registration"
                         formControlName="registration"
                         type="text"
                       />
@@ -55,11 +55,21 @@
                   </div>
               </div>
               <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <mat-form-field class="example-full-width">
                       <mat-select placeholder="Sector" formControlName="sector">
                         <mat-option value="option">Option</mat-option>
                       </mat-select>
+                    </mat-form-field>
+                  </div>
+                   <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Company Address"
+                        formControlName="address"
+                        type="text"
+                      />
                     </mat-form-field>
                   </div>
               </div>

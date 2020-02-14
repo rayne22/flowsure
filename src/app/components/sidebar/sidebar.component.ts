@@ -23,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
          },
          {
            path: '/view-insurance-companies',
-           title: 'Qoutations',
+           title: 'Quotations',
            icon: 'files_single-copy-04',
            class: ''
          },
@@ -49,6 +49,12 @@ export const ROUTES: RouteInfo[] = [
            path: '/queries',
            title: 'Queries',
            icon: 'ui-2_chat-round',
+           class: ''
+         },
+         {
+           path: '/reports',
+           title: 'Reports',
+           icon: 'business_chart-bar-32',
            class: ''
          },
          { path: '/icons', title: 'Icons', icon: 'education_atom', class: '' }

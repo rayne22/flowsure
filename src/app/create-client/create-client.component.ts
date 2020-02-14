@@ -15,10 +15,18 @@ export class CreateClientComponent implements OnInit {
     lastName: new FormControl(''),
     nrc: new FormControl(''),
     phone: new FormControl(''),
-    address: new FormControl(''),
+    street_address: new FormControl(''),
     email: new FormControl(''),
     gender: new FormControl(''),
-    nationality: new FormControl('')
+    nationality: new FormControl(''),
+    marital_status: new FormControl(''),
+    date_of_birth: new FormControl(''),
+    house_number: new FormControl(''),
+    place_of_birth: new FormControl(''),
+    residential_address: new FormControl(''),
+    postal_address: new FormControl(''),
+    title: new FormControl(''),
+    middle_name: new FormControl('')
   });
 
   constructor(public dialogRef: MatDialogRef<CreateClientComponent>) {}
