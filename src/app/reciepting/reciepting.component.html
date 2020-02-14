@@ -1,0 +1,395 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title" style="color:#4B0082;">Reciepting</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-tab-group>
+                <mat-tab label="Process Qoutation">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table
+                          mat-table
+                          [dataSource]="dataSource"
+                          matSort
+                        >
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              ID
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.id }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Product Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="amount">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Amount
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.amount }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="duration">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Duration
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.duration }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                (click)="onOpenReceiptingDialog()"
+                                color="primary"
+                                matTooltip="Receipt"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-minus-square mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="
+                              let row;
+                              columns: displayedColumns
+                            "
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Debit Note">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyDebitFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table
+                          mat-table
+                          [dataSource]="debitDataSource"
+                        >
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              ID
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.id }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              Product Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="amount_paid">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                             Amount Paid
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.amount_paid }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="amount_remaining">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                             Amount Remaining
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.amount_remaining }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="duration">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                             Duration
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.duration }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                color="primary"
+                                (click)="onOpenDebitNoteDialog()"
+                                matTooltip="Send Debit note"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-car mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedDebitColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="
+                              let row;
+                              columns: displayedDebitColumns
+                            "
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="View Reciept">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyReceiptFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table
+                          mat-table
+                          [dataSource]="receiptDataSource"
+                        >
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              ID
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.id }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="receipt_number">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              Receipt Number
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.receipt_number }}
+                            </td>
+                          </ng-container>
+
+                           <!-- Progress Column -->
+                          <ng-container matColumnDef="name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              Client Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.name }}
+                            </td>
+                          </ng-container>
+
+                           <!-- Progress Column -->
+                          <ng-container matColumnDef="product_name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              Product Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.product_name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="amount">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                             Amount
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.amount }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button mat-icon-button [matMenuTriggerFor]="menu" color="primary"  aria-label="Example icon-button with a menu">
+                                  <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item matTooltip="Download Receipt" color="primary" [matTooltipPosition]="'above'">
+                                    <mat-icon color="primary">cloud_download</mat-icon>
+                                    <span color="primary">Download Receipt</span>
+                                  </button>
+                                  <button mat-menu-item matTooltip="Email Receipt" color="primary" [matTooltipPosition]="'above'">
+                                    <mat-icon color="primary">email</mat-icon>
+                                    <span color="primary">Email Receipt</span>
+                                  </button>
+                                </mat-menu>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedReceiptColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="
+                              let row;
+                              columns: displayedReceiptColumns
+                            "
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                    </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

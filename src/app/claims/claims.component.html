@@ -1,0 +1,711 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title" style="color:#4B0082;">Claims</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-tab-group>
+                <mat-tab label="Veiw Claims">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table mat-table [dataSource]="dataSource" matSort>
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Intimation No.
+                            </th>
+                            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="risk">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Risk
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.risk }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="policy_number">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Policy No.
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.policy_number }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="client_name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Client Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.client_name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="date_of_loss">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Date of Loss
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.date_of_loss }}
+                            </td>
+                          </ng-container>
+
+                           <!-- Color Column -->
+                          <ng-container matColumnDef="status">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Status
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.status }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                color="primary"
+                                matTooltip="Details"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-info mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="let row; columns: displayedColumns"
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Intimate Claims">
+                  <mat-horizontal-stepper #stepper>
+                    <mat-step>
+                        <mat-accordion>
+                          <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                Individual Clients
+                              </mat-panel-title>
+                              <mat-panel-description>
+                                Individual Client details
+                              </mat-panel-description>
+                            </mat-expansion-panel-header>
+
+                            <div class="row">
+
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyIndividualFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table mat-table [dataSource]="individualDataSource" matSort>
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              ID
+                            </th>
+                            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="identitification">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Identitification
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.identitification }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="phone_number">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Phone Number
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.phone_number }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                matStepperNext
+                                color="primary"
+                                matTooltip="View Policy"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-link mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedIndividualColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="let row; columns: displayedIndividualColumns"
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          #individualPaginator
+                          [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                  </div>
+                          </mat-expansion-panel>
+                          <mat-expansion-panel (opened)="panelOpenState = true"
+                                              (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                Corporate Client
+                              </mat-panel-title>
+                              <mat-panel-description>
+                                Corporate Client details
+                              </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="row">
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyCorporateFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table #corporate mat-table [dataSource]="corporateDataSource" matSort>
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              ID
+                            </th>
+                            <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="registration">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Registration Number
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.registration }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="contact">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Contact
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.contact }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="email">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Email Address
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.email }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                matStepperNext
+                                color="primary"
+                                matTooltip="Details"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-briefcase mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedCorporateColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="let row; columns: displayedCorporateColumns"
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          #corporatePaginator
+                          [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                  </div>
+                          </mat-expansion-panel>
+                        </mat-accordion>
+                    </mat-step>
+                    <mat-step>
+                        <div class="row">
+            <div class="col-md-12">
+               <div class="row">
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyPolicyFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table
+                          mat-table
+                          [dataSource]="policyDataSource"
+                          matSort
+                        >
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="ref">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Ref No.
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.ref }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="product">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Product
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.product }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="client_name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Client Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.client_name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="number_of_vehicles">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             No. of Vehicles
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.number_of_vehicles }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="total_premium">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Total Premium
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.total_premium }}
+                            </td>
+                          </ng-container>
+
+                           <!-- Color Column -->
+                          <ng-container matColumnDef="start_date">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Start Date
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.start_date }}
+                            </td>
+                          </ng-container>
+
+                           <!-- Color Column -->
+                          <ng-container matColumnDef="end_date">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             End Date
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.end_date }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                color="primary"
+                                matTooltip="Download Policy Risks"
+                                [matTooltipPosition]="'above'"
+                                matStepperNext
+                              >
+                                <i class="fa fa-eye mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedPolicyColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="
+                              let row;
+                              columns: displayedPolicyColumns
+                            "
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          #PolicyPaginator
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                    </div>
+            </div>
+          </div>
+                    </mat-step>
+                    <mat-step>
+                      <!-- <ng-template matStepLabel>Done</ng-template> -->
+                      <div class="row">
+            <div class="col-md-12">
+               <div class="row">
+                    <div class="col-md-12">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyRiskFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table
+                          mat-table
+                          [dataSource]="riskDataSource"
+                          matSort
+                        >
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="ref">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Ref No.
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.ref }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="vehicle_make">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Vehicle Make
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.vehicle_make }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="vehicle_model">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Model
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.vehicle_model }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="number_plate">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Number Plate
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.number_plate }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                color="primary"
+                                matTooltip="Report Claims"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-info mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedRiskColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="
+                              let row;
+                              columns: displayedRiskColumns
+                            "
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          #RiskPaginator
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                    </div>
+            </div>
+          </div>
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+                      </div>
+                    </mat-step>
+                  </mat-horizontal-stepper>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title" style="color:#4B0082;">Queries</h5>
+        </div>
+        <div class="card-body">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="row">
+                 <div class="col-md-6">
+                      <button mat-icon-button aria-label="make query" style="color:#4B0082;" (click)="onOpenDialog()">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          (keyup)="applyFilter($event.target.value)"
+                          placeholder="Filter"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mat-elevation-z8">
+                        <table
+                          mat-table
+                          [dataSource]="dataSource"
+                          matSort
+                        >
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="id">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Query No.
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.id }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="query_title">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Query Title
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.query_title }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Progress Column -->
+                          <ng-container matColumnDef="client_name">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Client Name
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.client_name }}
+                            </td>
+                          </ng-container>
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="phone">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Contact Number
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.phone }}
+                            </td>
+                          </ng-container>
+
+                           <!-- Color Column -->
+                          <ng-container matColumnDef="date">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Lodge in Date
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.date }}
+                            </td>
+                          </ng-container>
+
+                           <!-- Color Column -->
+                          <ng-container matColumnDef="query_status">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                             Query Status
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              {{ row.query_status}}
+                            </td>
+                          </ng-container>
+
+                          <!-- Color Column -->
+                          <ng-container matColumnDef="actions">
+                            <th
+                              mat-header-cell
+                              *matHeaderCellDef
+                              mat-sort-header
+                            >
+                              Actions
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                              <button
+                                mat-icon-button
+                                color="primary"
+                                matTooltip="view Query"
+                                [matTooltipPosition]="'above'"
+                              >
+                                <i class="fa fa-street-view mat-icon"></i>
+                              </button>
+                            </td>
+                          </ng-container>
+
+                          <tr
+                            mat-header-row
+                            *matHeaderRowDef="displayedColumns"
+                          ></tr>
+                          <tr
+                            mat-row
+                            *matRowDef="
+                              let row;
+                              columns: displayedColumns
+                            "
+                          ></tr>
+                        </table>
+
+                        <mat-paginator
+                          [pageSizeOptions]="[5, 10, 20]"
+                          showFirstLastButtons
+                        ></mat-paginator>
+                      </div>
+                    </div>
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
