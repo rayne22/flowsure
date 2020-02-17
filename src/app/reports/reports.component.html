@@ -66,28 +66,26 @@
                         </div>
                         <div class="card-body">
                           <div class="row">
-                            <div class="col-md-8 width">
-
-                              <div class="row">
-                                <div class="col-md-2" *ngIf="inlineRange">
+                                <div class="col-md-4" *ngIf="inlineRange">
                                    <mat-form-field >
                                       <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.begin">
                                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                       <mat-datepicker #picker></mat-datepicker>
                                   </mat-form-field>
                                 </div>
-                                <div class="col-md-2" *ngIf="inlineRange">
+                                <div class="col-md-4" *ngIf="inlineRange">
                                    <mat-form-field >
                                       <input matInput [matDatepicker]="picker" placeholder="Choose a date" [value]= "inlineRange.end">
                                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                       <mat-datepicker #picker></mat-datepicker>
                                   </mat-form-field>
                                 </div>
-                                <div class="col-md-2" *ngIf="inlineRange">
+                                <div class="col-md-4" *ngIf="inlineRange">
                                   <button mat-raised-button color="primary">Primary</button>
                                 </div>
                               </div>
-
+                          <div class="row">
+                            <div class="col-md-8 width">
                               <div class="row">
                                 <div class="col-md-12">
                                 <div class="inlineCalendarContainer height">
